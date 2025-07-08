@@ -17,7 +17,7 @@ role_tags = {
     "bots": "[BOT]"  
 }
 
-}
+
 
 @bot.event
 async def on_ready():
