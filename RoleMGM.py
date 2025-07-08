@@ -13,8 +13,10 @@ role_tags = {
     "administrator": "[ADM]",
     "developer": "[DEV]",
     "honored": "[HON]",
-    "member": "[MEM]"
-    "bots": "[BOT]"
+    "member": "[MEM]",
+    "bots": "[BOT]"  
+}
+
 }
 
 @bot.event
