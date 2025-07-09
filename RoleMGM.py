@@ -66,5 +66,5 @@ async def updateall(ctx):
     await ctx.send("✅ Update complete!")
 
 keep_alive()
+print("Token loaded:", os.getenv("DISCORD_BOT_TOKEN") is not None)
 bot.run(os.getenv("DISCORD_BOT_TOKEN"))
-
