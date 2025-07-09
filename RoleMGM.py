@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+from keep_alive import keep_alive
 
 intents = discord.Intents.default()
 intents.members = True
@@ -64,5 +65,6 @@ async def updateall(ctx):
 
     await ctx.send("✅ Update complete!")
 
-bot.run("MTM5MTUxODg0OTQzNzkyNTUzNw.GuRQpu.PQOyfDYDuKsosY6Wzt05_isBhd2Aqu8I1K2_ZA")
+keep_alive()
+bot.run(os.getenv("DISCORD_BOT_TOKEN"))
 
