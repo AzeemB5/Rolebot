@@ -57,6 +57,13 @@ async def apply_tag(member):
 
 # Manual command to update all members
 @bot.command()
+@commands.has_permissions(manage_nicknames=True)
+async def update(ctx, member: discord.Member):
+    """Manually update the tag for a specific user."""
+    await apply_tag(member)
+    await ctx.send(f"🔁 Updated nickname for {member.mention}")
+
+@bot.command()
 @commands.has_permissions(administrator=True)
 async def updateall(ctx):
     await ctx.send("🔄 Updating all member nicknames...")
