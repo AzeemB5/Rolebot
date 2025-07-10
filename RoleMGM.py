@@ -59,9 +59,21 @@ async def apply_tag(member):
 @bot.command()
 @commands.has_permissions(manage_nicknames=True)
 async def update(ctx, member: discord.Member):
-    """Manually update the tag for a specific user."""
+    """Manually update the tag for a specific user and log it."""
+    old_nick = member.nick or member.name
+
     await apply_tag(member)
+
+    new_nick = member.nick or member.name
     await ctx.send(f"🔁 Updated nickname for {member.mention}")
+
+    # Log to #logs channel
+    log_channel = discord.utils.get(ctx.guild.text_channels, name="logs")
+    if log_channel:
+        await log_channel.send(
+            f"📒 `{ctx.author}` manually updated nickname for {member.mention}:\n"
+            f"`{old_nick}` → `{new_nick}`"
+        )
 
 @bot.command()
 @commands.has_permissions(administrator=True)
